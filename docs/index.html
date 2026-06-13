@@ -1,1 +1,59 @@
-temporary
+html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Онлайн логическая игра</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Онлайн логическая игра</h1>
+
+    <section id="joinScreen" class="card">
+      <h2>Вход в комнату</h2>
+
+      <label>Ваше имя</label>
+      <input id="nameInput" type="text" placeholder="Например: Алексей" />
+
+      <label>Код комнаты</label>
+      <input id="roomInput" type="text" placeholder="Например: ROOM1" />
+
+      <button id="joinBtn">Войти</button>
+    </section>
+
+    <section id="roomScreen" class="hidden">
+        <div class="card">
+        <h2>Комната: <span id="roomCodeText"></span></h2>
+        <p id="status">Ожидание подключения...</p>
+        <button id="startBtn">Начать игру</button>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Игроки</h3>
+          <ul id="playersList"></ul>
+        </div>
+        <div class="card">
+          <h3>Сделать ход</h3>
+          <p>Введите число от 1 до 100</p>
+          <input id="guessInput" type="number" min="1" max="100" />
+          <button id="guessBtn">Отправить ход</button>
+        </div>
+        <div class="card">
+          <h3>История ходов</h3>
+          <ul id="historyList"></ul>
+        </div>
+        <div class="card">
+          <h3>Чат</h3>
+          <div id="chatMessages" class="chat"></div>
+          <input id="chatInput" type="text" placeholder="Сообщение..." />
+          <button id="chatBtn">Отправить</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
